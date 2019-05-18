@@ -1,0 +1,172 @@
+{% load static from staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Econotics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'main.css'%}" />
+		<noscript><link rel="stylesheet" href="{% static 'noscript.css' %}" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="/">Econotics</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="/">Home</a></li>
+											<li><a href="/stocksdata">Stocks</a></li>
+											<li><a href="/currencydata">Currencies</a></li>
+											{% if user.is_authenticated %}
+											<li><a href="/logout">Log out</a></li>
+											<li><a href="/userinfo">Investments</a></li>
+											{% else %}
+											<li><a href="/signup">Sign Up</a></li>
+											<li><a href="/login">Log In</a></li>
+											{% endif %}
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Econotics</h2>
+							<p>Your Investment Matters<br /></p>
+							<ul class="actions special">
+								{% if user.is_authenticated %}
+								   <li><a href="#" class="button primary">{{user.username}}</a></li>
+   								 {% else %}
+								<li><a href="/login/" class="button primary">Log In</a></li>
+								{% endif %}
+							</ul>
+						</div>
+						<a href="#one" class="more scrolly">Learn More</a>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Econotics provide you with stocks and currency data<br />
+								so you can invest in your future</h2>
+								<p>Our easy to use web app lets you get data of your favorite company stocks<br />
+								Making it easier to buy the stocks and currency and monitor their growth.</p>
+							</header>
+							<ul class="icons major">
+								<li><span class="icon fa-diamond major style1"><span class="label">Lorem</span></span></li>
+								<li><span class="icon fa-heart-o major style2"><span class="label">Ipsum</span></span></li>
+								<li><span class="icon fa-code major style3"><span class="label">Dolor</span></span></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<div class="image"><img src="{% static 'msft.png'%}" alt="" width="80px" height="400px"/></div><div class="content">
+								<h2>Symbol: MSFT</h2>
+								<p>Company: {{mcompany}}</p>
+								<p>Stock Price: {{mprice}}</p>
+								<a href="#" >Learn More</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="{% static 'aapl4.png' %}" alt=""   height="400px"/></div><div class="content">
+								<h2>Symbol: AAPL</h2>
+								<p>Company: {{acompany}}</p>
+								<p>Stock Price: {{aprice}}</p>
+								<a href="#">Learn More</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="{% static 'fb.png'%}" alt=""  width="80px" height="400px"/></div><div class="content">
+								<h2>Symbol: FB</h2>
+								<p>Company: {{fcompany}}</p>
+								<p>Stock Price: {{fprice}}</p>
+								<a href="#">Learn More</a>
+							</div>
+						</section>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Invest in Currencies and build your empire</h2>
+								<p>We provide you with currency and cryptocurrency data that you need<br />
+								to invest smartly.</p>
+							</header>
+							<ul class="features">
+								<li class="icon ">
+									<h3>EUR</h3>
+									<p>1 USD in {{comp1}} is {{price1}}</p>
+								</li>
+								<li class="icon ">
+									<h3>CAD</h3>
+									<p>1 USD in {{comp2}} is {{price2}}</p>
+								</li>
+								<li class="icon ">
+									<h3>PKR</h3>
+									<p>1 USD in {{comp3}} is {{price3}}</p>
+								</li>
+								<li class="icon ">
+									<h3>SAR</h3>
+									<p>1 USD in {{comp4}} is {{price4}}</p>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>What Are You Waiting for?</h2>
+								<p>Start investing in your future now!!</p>
+							</header>
+							<ul class="actions stacked">
+								{% if user.is_authenticated %}
+								<li><a href="#" class="button fit">Learn More</a></li>
+								{% else %}
+								<li><a href="#" class="button fit primary">Login</a></li>
+								<li><a href="#" class="button fit">Learn More</a></li>
+								{% endif %}
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Econotics</li><li>User: <a href="/userinfo">{{user.username}}</a></li>
+						</ul>
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'jquery.min.js' %}"></script>
+			<script src="{% static 'jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'browser.min.js' %}"></script>
+			<script src="{% static 'breakpoints.min.js' %}"></script>
+			<script src="{% static 'util.js' %}"></script>
+			<script src="{% static 'main.js' %}"></script>
+
+	</body>
+</html>

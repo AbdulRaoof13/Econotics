@@ -1,0 +1,93 @@
+{% load static from staticfiles %}
+{% load admin_urls %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Log out!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'main.css'%}" />
+		<noscript><link rel="stylesheet" href="{% static 'noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">Econotics</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="/">Home</a></li>
+											<li><a href="/stocksdata">Stocks</a></li>
+                                            <li><a href="/currencydata">Elements</a></li>
+                                            {% if user.is_authenticated %}
+                                            <li><a href="/logout">Log out</a></li>
+                                            <li><a href="/userinfo">Investments</a></li>
+                                            {% else %}
+                                            <li><a href="/signup">Sign Up</a></li>
+                                            <li><a href="/login">Log In</a></li>
+                                            {% endif %}
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Loged out!</h2>
+							<p>Hope to see you soon</p>
+						</header>
+						<section class="wrapper style5">
+							<h4 style="margin: 15px">Log out</h4>
+
+										<div class="row gtr-uniform">
+											
+											<div class="col-6 col-12-xsmall">
+                                                <legend style="margin: 10px">You Have Just Loged out!</legend>
+											</div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><a href="/login" style="margin:10px">Log In again</a></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+								<li>&copy; Econotics</li><li>User: <a href="/userinfo">{{user.username}}</a></li>
+							</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'jquery.min.js' %}"></script>
+			<script src="{% static 'jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'browser.min.js' %}"></script>
+			<script src="{% static 'breakpoints.min.js' %}"></script>
+			<script src="{% static 'util.js' %}"></script>
+			<script src="{% static 'main.js' %}"></script>
+
+	</body>
+</html>
